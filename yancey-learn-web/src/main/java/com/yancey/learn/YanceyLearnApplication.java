@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.transaction.jta.JtaAutoConfiguration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * spring boot 启动入口
@@ -13,10 +14,9 @@ import org.springframework.boot.autoconfigure.transaction.jta.JtaAutoConfigurati
  * @author yaxuany
  * @date 2019/9/18 17:21
  */
-//@EnableTransactionManagement(proxyTargetClass = true)
+@EnableTransactionManagement(proxyTargetClass = true)
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
 @MapperScan(basePackages = {"com.yancey.learn.dao.mapper"}, sqlSessionFactoryRef = "sessionFactory")
-// , sqlSessionFactoryRef = "sessionFactory"
 @SpringBootApplication(exclude = JtaAutoConfiguration.class)
 public class YanceyLearnApplication {
 

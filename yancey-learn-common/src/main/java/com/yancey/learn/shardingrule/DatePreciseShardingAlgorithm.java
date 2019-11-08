@@ -10,6 +10,8 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Locale;
 
+import static com.yancey.learn.constants.UserTableConstants.USER_TABLE_PHYSICAL_NAME_MONTH_PATTERN;
+
 /**
  * 根据日期分片
  *
@@ -29,8 +31,7 @@ public class DatePreciseShardingAlgorithm implements PreciseShardingAlgorithm<Da
         Date createTime = shardingValue.getValue();
         String dateMonth = "201909";
         try {
-            dateMonth = LocalDate.fromDateFields(createTime).toString("yyyyMM", Locale.CHINA);
-            System.err.println(dateMonth);
+            dateMonth = LocalDate.fromDateFields(createTime).toString(USER_TABLE_PHYSICAL_NAME_MONTH_PATTERN, Locale.CHINA);
         } catch (Exception e) {
             logger.error("解析创建时间异常，分表失败，进入默认表");
         }
