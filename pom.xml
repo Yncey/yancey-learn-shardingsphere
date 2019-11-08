@@ -203,7 +203,7 @@
     </dependencyManagement>
 
     <build>
-        <finalName>yancey-learn</finalName>
+        <finalName>learn-sharding</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>

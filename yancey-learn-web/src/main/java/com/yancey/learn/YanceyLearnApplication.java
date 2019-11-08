@@ -13,11 +13,11 @@ import org.springframework.boot.autoconfigure.transaction.jta.JtaAutoConfigurati
  * @author yaxuany
  * @date 2019/9/18 17:21
  */
-@SpringBootApplication(exclude = JtaAutoConfiguration.class)
+//@EnableTransactionManagement(proxyTargetClass = true)
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
 @MapperScan(basePackages = {"com.yancey.learn.dao.mapper"}, sqlSessionFactoryRef = "sessionFactory")
 // , sqlSessionFactoryRef = "sessionFactory"
-//@EnableTransactionManagement(proxyTargetClass = true)
+@SpringBootApplication(exclude = JtaAutoConfiguration.class)
 public class YanceyLearnApplication {
 
     public static void main(String[] args) {
