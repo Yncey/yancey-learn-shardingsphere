@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 /**
  * Cookie工具类
  *
- * @author pengweiz
+ * @author yaxuany
  * @date 2018/9/4 上午10:49
  */
 public final class CookieUtil {

@@ -12,7 +12,7 @@ import java.util.Map.Entry;
 /**
  * 获取请求参数工具类
  *
- * @author pengweiz
+ * @author yaxuany
  * @date 2018/7/31 下午3:37
  */
 public class RequestUtil {
