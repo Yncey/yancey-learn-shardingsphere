@@ -1,0 +1,56 @@
+# Server
+server:
+  port: 8080
+
+# mybatis
+#mybatis:
+#  #  config-location: classpath:mybatis/mapper/mybatis-config.xml
+#  mapper-locations: classpath:mybatis/mapper/*Mapper.xml
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    use-generated-keys: true
+
+# shardingsphere
+spring:
+  profiles:
+    active: @deploy.type@
+  shardingsphere:
+    datasource:
+      names:  master,slave0,slave1
+      # 写数据源master
+      master:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+      # 读数据源slave0
+      slave0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+      # 读数据源slave1
+      slave1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+#    sharding:
+#      tables:
+#        t_user:
+#          actual-data-nodes: ds_ms.t_user$->{201910..201911}
+#          logic-table: t_user
+#          table-strategy:
+#            standard:
+#              precise-algorithm-class-name: com.yancey.learn.shardingrule.DatePreciseShardingAlgorithm
+#              sharding-column: create_time
+##            inline:
+##              sharding-column: sex
+##              algorithm-expression: t_user$->{sex % 2}
+#          key-generator:
+#            column: id
+#            type: SNOWFLAKE
+#      master-slave-rules:
+#        ds_ms:
+#          master-data-source-name: master
+#          name: ds_ms
+#          slave-data-source-names:
+#            - slave0
+#            - slave1
+#          load-balance-algorithm-type: ROUND_ROBIN
+#    props:
+#      sql.show: true
