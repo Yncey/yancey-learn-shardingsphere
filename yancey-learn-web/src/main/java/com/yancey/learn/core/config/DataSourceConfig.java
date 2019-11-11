@@ -135,6 +135,7 @@ public class DataSourceConfig {
         // 主键生成规则
         KeyGeneratorConfiguration keyGeneratorConfiguration = new KeyGeneratorConfiguration(
                 "SNOWFLAKE", USER_COLUMN_NAME_ID, new Properties());
+
         userTableRuleConfig.setKeyGeneratorConfig(keyGeneratorConfiguration);
         return userTableRuleConfig;
     }

@@ -18,10 +18,10 @@
     </sql>
 
     <insert id="insert" parameterType="com.yancey.learn.model.User">
-        INSERT INTO t_user(name,phone,email,city_id,sex,password)
+        INSERT INTO t_user(name,phone,email,city_id,sex,password,create_time)
         VALUES
         (
-        #{name},#{phone},#{email},#{cityId},#{sex},#{password}
+        #{name},#{phone},#{email},#{cityId},#{sex},#{password},#{createTime}
         )
     </insert>
 

@@ -1,5 +1,6 @@
 package com.yancey.learn;
 
+import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 
 import java.util.Date;
@@ -18,5 +19,8 @@ public class T {
     public static void main(String[] args) {
         String s = LocalDate.fromDateFields(new Date()).toString(USER_TABLE_PHYSICAL_NAME_MONTH_PATTERN, Locale.CHINA);
         System.out.println(s);
+
+        String dataMonth = DateTime.now().toString(USER_TABLE_PHYSICAL_NAME_MONTH_PATTERN);
+        System.out.println(dataMonth);
     }
 }

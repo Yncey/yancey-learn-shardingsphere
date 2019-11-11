@@ -2,6 +2,7 @@ package com.yancey.learn.shardingrule;
 
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingAlgorithm;
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingValue;
+import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +30,7 @@ public class DatePreciseShardingAlgorithm implements PreciseShardingAlgorithm<Da
     @Override
     public String doSharding(Collection<String> collection, PreciseShardingValue<Date> shardingValue) {
         Date createTime = shardingValue.getValue();
-        String dataMonth = LocalDate.fromDateFields(new Date()).toString(USER_TABLE_PHYSICAL_NAME_MONTH_PATTERN, Locale.CHINA);
+        String dataMonth = DateTime.now().toString(USER_TABLE_PHYSICAL_NAME_MONTH_PATTERN, Locale.CHINA);
         try {
             dataMonth = LocalDate.fromDateFields(createTime).toString(USER_TABLE_PHYSICAL_NAME_MONTH_PATTERN, Locale.CHINA);
         } catch (Exception e) {
