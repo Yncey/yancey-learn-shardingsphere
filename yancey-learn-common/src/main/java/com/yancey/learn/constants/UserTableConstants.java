@@ -6,10 +6,10 @@ package com.yancey.learn.constants;
  * @author yaxuany
  * @date 2019/11/08 下午 4:57
  */
-public class UserTableConstants {
+public final class UserTableConstants {
 
     /**
-     * 用户记录表名
+     * 用户记录逻辑表名
      */
     public static final String USER_TABLE_LOGIC_NAME = "t_user";
 

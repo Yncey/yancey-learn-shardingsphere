@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Locale;
 
+import static com.yancey.learn.constants.UserTableConstants.USER_TABLE_PHYSICAL_NAME_FORMAT;
 import static com.yancey.learn.constants.UserTableConstants.USER_TABLE_PHYSICAL_NAME_MONTH_PATTERN;
 
 /**
@@ -27,14 +28,13 @@ public class DatePreciseShardingAlgorithm implements PreciseShardingAlgorithm<Da
 
     @Override
     public String doSharding(Collection<String> collection, PreciseShardingValue<Date> shardingValue) {
-        String loginTableName = shardingValue.getLogicTableName();
         Date createTime = shardingValue.getValue();
-        String dateMonth = "201909";
+        String dataMonth = LocalDate.fromDateFields(new Date()).toString(USER_TABLE_PHYSICAL_NAME_MONTH_PATTERN, Locale.CHINA);
         try {
-            dateMonth = LocalDate.fromDateFields(createTime).toString(USER_TABLE_PHYSICAL_NAME_MONTH_PATTERN, Locale.CHINA);
+            dataMonth = LocalDate.fromDateFields(createTime).toString(USER_TABLE_PHYSICAL_NAME_MONTH_PATTERN, Locale.CHINA);
         } catch (Exception e) {
             logger.error("解析创建时间异常，分表失败，进入默认表");
         }
-        return loginTableName + dateMonth;
+        return String.format(USER_TABLE_PHYSICAL_NAME_FORMAT, dataMonth);
     }
 }
