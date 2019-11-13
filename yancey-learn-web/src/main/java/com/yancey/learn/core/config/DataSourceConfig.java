@@ -133,8 +133,7 @@ public class DataSourceConfig {
                 new StandardShardingStrategyConfiguration(USER_COLUMN_NAME_CREATE_TIME, new DatePreciseShardingAlgorithm()));
 
         // 主键生成规则
-        KeyGeneratorConfiguration keyGeneratorConfiguration = new KeyGeneratorConfiguration(
-                "SNOWFLAKE", USER_COLUMN_NAME_ID, new Properties());
+        KeyGeneratorConfiguration keyGeneratorConfiguration = new KeyGeneratorConfiguration("SNOWFLAKE", USER_COLUMN_NAME_ID);
 
         userTableRuleConfig.setKeyGeneratorConfig(keyGeneratorConfiguration);
         return userTableRuleConfig;
