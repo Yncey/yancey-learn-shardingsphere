@@ -54,8 +54,8 @@ public class HadoopLockHandler {
         Assert.isTrue(lockExpireTime > 0, "lockExpireTime must be greater than 0.");
         boolean isAcquired = false;
         try {
-            int locakReuslt = redis.setnx(lockName, LocalDateTime.now().toString());
-            if (locakReuslt == 1) {
+            int lockResult = redis.setnx(lockName, LocalDateTime.now().toString());
+            if (lockResult == 1) {
                 if (redis.expire(lockName, lockExpireTime)) {
                     isAcquired = true;
                 } else {
