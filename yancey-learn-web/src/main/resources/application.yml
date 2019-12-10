@@ -12,8 +12,10 @@ server:
 
 # shardingsphere
 spring:
+  # 动态环境
   profiles:
     active: @deploy.type@
+  # sharding
   shardingsphere:
     datasource:
       names:  master,slave0,slave1

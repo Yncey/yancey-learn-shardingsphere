@@ -44,18 +44,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>io.shardingsphere</groupId>-->
-        <!--            <artifactId>sharding-jdbc-core</artifactId>-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>io.shardingsphere</groupId>-->
-        <!--            <artifactId>sharding-core</artifactId>-->
-        <!--        </dependency>-->
-<!--        <dependency>-->
-        <!--            <groupId>io.shardingsphere</groupId>-->
-        <!--            <artifactId>sharding-jdbc-spring-boot-starter</artifactId>-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.apache.shardingsphere</groupId>
