@@ -15,11 +15,12 @@ public class RedisTests extends AbstractTransactionalTestNGSpringContextTests {
 
     @Test
     public void testGet() {
-        System.out.println(redis.getInt("name"));
+        redis.set("name", "123545");
         System.out.println(redis.getStr("name"));
         System.out.println(redis.ttl("name"));
-        redis.del("name");
-        System.out.println(redis.getInt("name"));
+        redis.expire("name", 5L);
+        System.out.println(redis.ttl("name"));
+//        redis.del("name");
     }
 
 }
